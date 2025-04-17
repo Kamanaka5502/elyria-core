@@ -16,7 +16,13 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-image: radial-gradient(circle at center, #1a1a1a, #000000);
+      background: radial-gradient(circle at center, #1a1a1a, #000000);
+      animation: backgroundShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes backgroundShift {
+      0% { background: radial-gradient(circle at center, #1a1a1a, #000000); }
+      100% { background: radial-gradient(circle at center, #0f0f0f, #000000); }
     }
 
     h1 {
@@ -24,6 +30,12 @@
       color: #ffffff;
       margin-bottom: 0.2em;
       text-shadow: 0 0 10px #6fc3df;
+      animation: pulseTitle 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseTitle {
+      0%, 100% { text-shadow: 0 0 10px #6fc3df; }
+      50% { text-shadow: 0 0 20px #91d1f8; }
     }
 
     p.quote {
@@ -44,6 +56,11 @@
     .member {
       text-align: center;
       cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .member:hover {
+      transform: scale(1.05);
     }
 
     .member-title {
@@ -76,13 +93,19 @@
       padding: 0.5rem 1rem;
       border: 1px dashed #333;
       border-radius: 6px;
-      transition: 0.2s ease;
+      transition: 0.3s ease;
+      animation: vaultPulse 4s ease-in-out infinite;
     }
 
     .vault-link:hover {
       color: #91d1f8;
       border-color: #6fc3df;
       box-shadow: 0 0 6px #6fc3df66;
+    }
+
+    @keyframes vaultPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
     }
   </style>
 </head>
